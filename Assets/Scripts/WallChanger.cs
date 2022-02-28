@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelChanger : MonoBehaviour
+public class WallChanger : MonoBehaviour
 {
   enum Wall
   {
@@ -90,7 +90,7 @@ public class PanelChanger : MonoBehaviour
         transform.localPosition = new Vector2(-3000, 0);
         break;
       case Wall.Wall4:
-        transform.localPosition = new Vector2(0, -2000);
+        transform.localPosition = new Vector2(0, 2000);
         break;
         // フォーカスの画像
     }
