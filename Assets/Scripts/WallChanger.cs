@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WallChanger : MonoBehaviour
 {
+  public GameObject rightArrow;
+  public GameObject leftArrow;
+  public GameObject backArrow;
+
   enum Wall
   {
     Wall0,
@@ -19,6 +23,19 @@ public class WallChanger : MonoBehaviour
   }
 
   Wall currentWall;
+
+  private void Start()
+  {
+    Show(Wall.Wall0);
+  }
+
+
+  void HideArrows()
+  {
+    rightArrow.SetActive(false);
+    leftArrow.SetActive(false);
+    backArrow.SetActive(false);
+  }
 
   public void OnRightButton()
   {
@@ -75,24 +92,34 @@ public class WallChanger : MonoBehaviour
 
   void Show(Wall Wall)
   {
+    HideArrows();
     currentWall = Wall;
 
     // 4つの壁
     switch (Wall)
     {
       case Wall.Wall0:
+        rightArrow.SetActive(true);
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(0, 0);
         break;
       case Wall.Wall1:
+        rightArrow.SetActive(true);
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-1000, 0);
         break;
       case Wall.Wall2:
+        rightArrow.SetActive(true);
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-2000, 0);
         break;
       case Wall.Wall3:
+        rightArrow.SetActive(true);
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-3000, 0);
         break;
       case Wall.Wall00:
+        backArrow.SetActive(true);
         transform.localPosition = new Vector2(0, 2000);
         break;
         // フォーカスの画像
