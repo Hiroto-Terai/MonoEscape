@@ -20,6 +20,12 @@ public class WallChanger : MonoBehaviour
     Wall0_3,
     Wall0_4,
     Wall0_5,
+    Wall1_0,
+    Wall1_1,
+    Wall1_2,
+    Wall1_3,
+    Wall1_4,
+    Wall1_5,
   }
 
   Wall currentWall;
