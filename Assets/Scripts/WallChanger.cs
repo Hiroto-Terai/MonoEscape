@@ -89,8 +89,48 @@ public class WallChanger : MonoBehaviour
   {
     switch (currentWall)
     {
+      // 壁0に戻る
       case Wall.Wall0_0:
+      case Wall.Wall0_1:
+      case Wall.Wall0_3:
         Show(Wall.Wall0);
+        break;
+      // 宝箱フォーカス解除
+      case Wall.Wall0_2:
+        Show(Wall.Wall0_1);
+        break;
+      // 壁1に戻る
+      case Wall.Wall1_0:
+      case Wall.Wall1_2:
+      case Wall.Wall1_4:
+        Show(Wall.Wall1);
+        break;
+      // ゴミ箱フォーカス解除
+      case Wall.Wall1_1:
+        Show(Wall.Wall1_0);
+        break;
+      // レバーBOXフォーカス解除
+      case Wall.Wall1_3:
+        Show(Wall.Wall1_2);
+        break;
+      // 壁2に戻る
+      case Wall.Wall2_0:
+      case Wall.Wall2_1:
+      case Wall.Wall2_2:
+        Show(Wall.Wall2);
+        break;
+      // パスワードBOXフォーカス解除
+      case Wall.Wall2_3:
+        Show(Wall.Wall2_2);
+        break;
+      // 壁3に戻る
+      case Wall.Wall3_0:
+      case Wall.Wall3_2:
+        Show(Wall.Wall3);
+        break;
+      // オセロ金庫フォーカス解除
+      case Wall.Wall3_1:
+        Show(Wall.Wall3_0);
         break;
     }
   }
