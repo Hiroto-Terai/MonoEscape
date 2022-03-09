@@ -224,19 +224,19 @@ public class WallChanger : MonoBehaviour
         break;
       case Wall.Wall0_0:
         backArrow.SetActive(true);
-        transform.localPosition = new Vector2(-1000, 2000);
+        transform.localPosition = new Vector2(0, 2000);
         break;
       case Wall.Wall0_1:
         backArrow.SetActive(true);
-        transform.localPosition = new Vector2(-2000, 2000);
+        transform.localPosition = new Vector2(-1000, 2000);
         break;
       case Wall.Wall0_2:
         backArrow.SetActive(true);
-        transform.localPosition = new Vector2(-3000, 2000);
+        transform.localPosition = new Vector2(-2000, 2000);
         break;
       case Wall.Wall0_3:
         backArrow.SetActive(true);
-        transform.localPosition = new Vector2(4000, 2000);
+        transform.localPosition = new Vector2(-3000, 2000);
         break;
       case Wall.Wall1_0:
         backArrow.SetActive(true);
