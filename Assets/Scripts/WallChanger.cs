@@ -14,12 +14,12 @@ public class WallChanger : MonoBehaviour
     Wall1,
     Wall2,
     Wall3,
-    Wall00,
-    Wall01,
-    Wall02,
-    Wall03,
-    Wall04,
-    Wall05,
+    Wall0_0,
+    Wall0_1,
+    Wall0_2,
+    Wall0_3,
+    Wall0_4,
+    Wall0_5,
   }
 
   Wall currentWall;
@@ -79,15 +79,15 @@ public class WallChanger : MonoBehaviour
   {
     switch (currentWall)
     {
-      case Wall.Wall00:
+      case Wall.Wall0_0:
         Show(Wall.Wall0);
         break;
     }
   }
 
-  public void OnSample()
+  public void OnSwitchBox()
   {
-    Show(Wall.Wall00);
+    Show(Wall.Wall0_0);
   }
 
   void Show(Wall Wall)
@@ -118,7 +118,7 @@ public class WallChanger : MonoBehaviour
         leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-3000, 0);
         break;
-      case Wall.Wall00:
+      case Wall.Wall0_0:
         backArrow.SetActive(true);
         transform.localPosition = new Vector2(0, 2000);
         break;
