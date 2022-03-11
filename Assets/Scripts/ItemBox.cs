@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class ItemBox : MonoBehaviour
 {
-  // フィールド上にあるアイテムをタップした時にアイテムBOXに格納
+  [SerializeField] Slot[] slots;
+  // どこでも実行できるようにstatic化
+  public static ItemBox instance;
+  private void Awake()
+  {
+    if (instance == null)
+    {
+      instance = this;
+    }
+  }
+
+  // PickupObjがタップされたら、アイテムBOXに格納
+  public void SetItem(Item item)
+  {
+    slots[0].SetItem(item);
+  }
 
   // アイテムBOX内にあるアイテムをタップした時にアイテム周辺に枠ができる
   // 選択しているフラグを立てる
