@@ -14,4 +14,11 @@ public class Item
 
   public Type type;         // 種類
   public Sprite sprite;     // Slotに表示する画像
+
+  // 型
+  public Item(Type type, Sprite sprite)
+  {
+    this.type = type;
+    this.sprite = sprite;
+  }
 }
