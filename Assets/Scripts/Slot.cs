@@ -9,9 +9,16 @@ public class Slot : MonoBehaviour
   Image image;
   Item item;
 
+  [SerializeField] GameObject ChoiceFrame;
   private void Awake()
   {
     image = GetComponent<Image>();
+    image.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+  }
+
+  private void Start()
+  {
+    ChoiceFrame.SetActive(false);
   }
 
   public bool IsEmpty()
@@ -35,5 +42,20 @@ public class Slot : MonoBehaviour
   {
     // スロットのImageコンポーネントにPickupObjの画像を入れる
     image.sprite = item.sprite;
+    image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+  }
+
+  public void OnSelected()
+  {
+    if (item == null)
+    {
+      return;
+    }
+    ChoiceFrame.SetActive(true);
+  }
+
+  public void HideFrame()
+  {
+    ChoiceFrame.SetActive(false);
   }
 }
