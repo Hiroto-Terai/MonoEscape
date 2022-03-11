@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemBox : MonoBehaviour
 {
   [SerializeField] Slot[] slots;
+  [SerializeField] Slot selectedSlot = null;
+
   // どこでも実行できるようにstatic化
   public static ItemBox instance;
   private void Awake()
@@ -12,6 +14,8 @@ public class ItemBox : MonoBehaviour
     if (instance == null)
     {
       instance = this;
+
+      // slots配列にslot要素をコードから挿入
       slots = GetComponentsInChildren<Slot>();
     }
   }
@@ -39,7 +43,10 @@ public class ItemBox : MonoBehaviour
       slot.HideFrame();
     }
     // 選択されたスロットの選択フレームを表示
-    slots[position].OnSelected();
+    if (slots[position].OnSelected())
+    {
+      selectedSlot = slots[position];
+    }
   }
 
   // 選択しているフラグを立てる

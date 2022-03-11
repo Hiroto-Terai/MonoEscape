@@ -45,13 +45,14 @@ public class Slot : MonoBehaviour
     image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
   }
 
-  public void OnSelected()
+  public bool OnSelected()
   {
     if (item == null)
     {
-      return;
+      return false;
     }
     ChoiceFrame.SetActive(true);
+    return true;
   }
 
   public void HideFrame()
