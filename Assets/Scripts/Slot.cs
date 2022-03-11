@@ -7,16 +7,27 @@ public class Slot : MonoBehaviour
 {
   // スロット自体のImageコンポーネント
   Image image;
+  Item item;
 
   private void Awake()
   {
     image = GetComponent<Image>();
   }
 
+  public bool IsEmpty()
+  {
+    if (item == null)
+    {
+      return true;
+    }
+    return false;
+  }
+
   // アイテムを受け取ったら画像をスロットに表示する
 
   public void SetItem(Item item)
   {
+    this.item = item;
     UpdateImage(item);
   }
 

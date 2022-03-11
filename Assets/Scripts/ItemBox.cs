@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ItemBox : MonoBehaviour
 {
+  // やりたいこと: 
+  // Slotが空いてたら、左から入れていく
+
+
   [SerializeField] Slot[] slots;
   // どこでも実行できるようにstatic化
   public static ItemBox instance;
@@ -18,7 +22,15 @@ public class ItemBox : MonoBehaviour
   // PickupObjがタップされたら、アイテムBOXに格納
   public void SetItem(Item item)
   {
-    slots[0].SetItem(item);
+    foreach (Slot slot in slots)
+    {
+      // Slotsを1つずつ見て、空いてたら画像(itemも)を入れる
+      if (slot.IsEmpty())
+      {
+        slot.SetItem(item);
+        break;
+      }
+    }
   }
 
   // アイテムBOX内にあるアイテムをタップした時にアイテム周辺に枠ができる

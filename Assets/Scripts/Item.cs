@@ -9,6 +9,7 @@ public class Item
   public enum Type
   {
     Reversi,
+    HintCard1,
   }
 
   public Type type;         // 種類
