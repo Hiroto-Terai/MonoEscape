@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-  [SerializeField] Item.Type clearItem;
+  [SerializeField] Item.Type clearItemType;
   [SerializeField] GameObject Crashed;
 
   // クリックした時
@@ -17,7 +17,7 @@ public class Wall : MonoBehaviour
   public void OnClickObj()
   {
     // アイテムHammerを持っているかどうか
-    bool clear = ItemBox.instance.TryUseItem(clearItem);
+    bool clear = ItemBox.instance.TryUseItem(clearItemType);
     if (clear)
     {
       // 壊れる前の壁を削除

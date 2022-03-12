@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742846c49f6be4bc7a15d0a6a98d80d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearItem: 2
+  clearItemType: 2
   Crashed: {fileID: 2141813252}
 --- !u!114 &85797705
 MonoBehaviour:

@@ -6,12 +6,18 @@ using UnityEngine.UI;
 public class Slot : MonoBehaviour
 {
   // スロット自体のImageコンポーネント
-  Image image;
+  public Image image;
   Item item;
+
+  public static Slot instance;
 
   [SerializeField] GameObject ChoiceFrame;
   private void Awake()
   {
+    if (instance == null)
+    {
+      instance = this;
+    }
     image = GetComponent<Image>();
     image.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
   }
@@ -43,7 +49,7 @@ public class Slot : MonoBehaviour
     return item;
   }
 
-  void UpdateImage(Item item)
+  public void UpdateImage(Item item)
   {
     // スロットのImageコンポーネントにPickupObjの画像を入れる
     if (item == null)
