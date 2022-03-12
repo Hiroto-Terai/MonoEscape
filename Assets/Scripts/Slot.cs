@@ -38,11 +38,25 @@ public class Slot : MonoBehaviour
     UpdateImage(item);
   }
 
+  public Item GetItem()
+  {
+    return item;
+  }
+
   void UpdateImage(Item item)
   {
     // スロットのImageコンポーネントにPickupObjの画像を入れる
-    image.sprite = item.sprite;
-    image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    if (item == null)
+    {
+      image.sprite = null;
+      image.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+      HideFrame();
+    }
+    else
+    {
+      image.sprite = item.sprite;
+      image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    }
   }
 
   public bool OnSelected()

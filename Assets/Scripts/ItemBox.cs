@@ -49,6 +49,22 @@ public class ItemBox : MonoBehaviour
     }
   }
 
-  // 選択しているフラグを立てる
+  // アイテムの使用/使えるなら使う
+  public bool TryUseItem(Item.Type type)
+  {
+    // 選択スロットがあるかどうか
+    if (selectedSlot == null)
+    {
+      return false;
+    }
+    // Hammerを選択しているか
+    if (selectedSlot.GetItem().type != type)
+    {
+      return false;
+    }
+    selectedSlot.SetItem(null);
+    return true;
+  }
+
   // フラグが立っている状態で何かアクションをすると動作する
 }

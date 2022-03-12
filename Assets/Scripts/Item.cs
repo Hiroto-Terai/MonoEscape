@@ -10,6 +10,7 @@ public class Item
   {
     Reversi,
     HintCard1,
+    Hammer,
   }
 
   public Type type;         // 種類
