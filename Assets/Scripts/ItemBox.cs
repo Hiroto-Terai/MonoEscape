@@ -65,6 +65,4 @@ public class ItemBox : MonoBehaviour
     selectedSlot.SetItem(null);
     return true;
   }
-
-  // フラグが立っている状態で何かアクションをすると動作する
 }
