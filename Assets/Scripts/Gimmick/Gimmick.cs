@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gimmick : MonoBehaviour
+public class Wall : MonoBehaviour
 {
   [SerializeField] Item.Type clearItemType;
   [SerializeField] GameObject Crashed;
