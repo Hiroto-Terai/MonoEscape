@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class ItemGenerator : MonoBehaviour
 {
-  [SerializeField] ItemListEntity itemListEntity;
+    [SerializeField] ItemListEntity itemListEntity;
 
-  public static ItemGenerator instance;
-  private void Awake()
-  {
-    if (instance == null)
+    public static ItemGenerator instance;
+    private void Awake()
     {
-      instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
-  }
 
-  public Item Spawn(Item.Type type)
-  {
-    // itemListの中からtypeと一致するitemインスタンスを生成して渡す
-    foreach (Item item in itemListEntity.itemList)
+    public Item Spawn(Item.Type type)
     {
-      if (item.type == type)
-      {
-        return new Item(item.type, item.sprite);
-      }
+        // itemListの中からtypeと一致するitemインスタンスを生成して渡す
+        foreach (Item item in itemListEntity.itemList)
+        {
+            if (item.type == type)
+            {
+                return new Item(item.type, item.sprite);
+            }
+        }
+        return null;
     }
-    return null;
-  }
 }
