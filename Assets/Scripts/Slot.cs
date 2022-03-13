@@ -12,6 +12,7 @@ public class Slot : MonoBehaviour
   public static Slot instance;
 
   [SerializeField] GameObject ChoiceFrame;
+  
   private void Awake()
   {
     if (instance == null)
