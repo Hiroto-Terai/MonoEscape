@@ -326,6 +326,8 @@ public class WallChanger : MonoBehaviour
         backArrow.SetActive(true);
         transform.localPosition = new Vector2(-2000, 8000);
         break;
+      default:
+        break;
     }
   }
 }
