@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemListEntity : ScriptableObject
 {
-  public List<Item> itemList = new List<Item>();
+    public List<Item> itemList = new List<Item>();
 }
