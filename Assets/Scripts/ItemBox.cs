@@ -7,7 +7,6 @@ public class ItemBox : MonoBehaviour
 {
     [SerializeField] Slot[] slots;
     [SerializeField] Slot selectedSlot = null;
-    public int selectCount = 0;
 
     // アイテム使用後のitemを持つslotの数をカウントするための変数
     public int slotsCount = 0;
@@ -51,14 +50,6 @@ public class ItemBox : MonoBehaviour
         if (slots[position].OnSelected())
         {
             selectedSlot = slots[position];
-            if (selectCount == 0)
-            {
-                selectCount = 1;
-            }
-            else
-            {
-                return;
-            }
         }
     }
 
