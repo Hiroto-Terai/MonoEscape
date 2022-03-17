@@ -15,7 +15,13 @@ MonoBehaviour:
   itemList:
   - type: 0
     sprite: {fileID: 21300000, guid: 9fb7229f2c7db4f20b988c11474dbefd, type: 3}
-  - type: 1
-    sprite: {fileID: 21300000, guid: 574b644d32f3041079640373e44d39b5, type: 3}
+    zoomImage: {fileID: 21300000, guid: 9fb7229f2c7db4f20b988c11474dbefd, type: 3}
   - type: 2
     sprite: {fileID: 21300000, guid: c22af3a9f5f90498e9872e103d88b100, type: 3}
+    zoomImage: {fileID: 21300000, guid: c22af3a9f5f90498e9872e103d88b100, type: 3}
+  - type: 2
+    sprite: {fileID: 21300000, guid: c22af3a9f5f90498e9872e103d88b100, type: 3}
+    zoomImage: {fileID: 0}
+  - type: 1
+    sprite: {fileID: 21300000, guid: 574b644d32f3041079640373e44d39b5, type: 3}
+    zoomImage: {fileID: 21300000, guid: 574b644d32f3041079640373e44d39b5, type: 3}
