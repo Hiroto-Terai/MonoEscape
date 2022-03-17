@@ -8,7 +8,8 @@ public class Item
 {
     public enum Type
     {
-        Reversi,
+        WhiteReversi1,
+        WhiteReversi2,
         HintCard1,
         Hammer,
     }
