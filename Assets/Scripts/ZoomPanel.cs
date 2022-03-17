@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ZoomPanel : MonoBehaviour
 {
     [SerializeField] GameObject panel = default;
     [SerializeField] GameObject wallParent;
+    [SerializeField] GameObject zoomImageObj;
+    public Image zoomImage;
 
     [SerializeField] GameObject rightArrow;
     [SerializeField] GameObject leftArrow;
@@ -20,6 +23,11 @@ public class ZoomPanel : MonoBehaviour
 
     Item beforeItem;
 
+    private void Start()
+    {
+        zoomImage = zoomImageObj.GetComponent<Image>();
+    }
+
     // アイテムを選択かつアイテムが2回押されたら
     // 拡大表示
     public void OpenPanel()
@@ -28,8 +36,6 @@ public class ZoomPanel : MonoBehaviour
         if (selectCount == 0 && !isShow)
         {
             selectCount = 1;
-            beforeItem = currentItem;
-            return;
         }
         if (currentItem == beforeItem && selectCount == 1 && !isShow)
         {
@@ -39,8 +45,8 @@ public class ZoomPanel : MonoBehaviour
             rightArrow.SetActive(false);
             leftArrow.SetActive(false);
             backArrow.SetActive(true);
-            beforeItem = currentItem;
         }
+        zoomImage.sprite = ItemGenerator.instance.GetZoomImage(currentItem.type);
         beforeItem = currentItem;
     }
 

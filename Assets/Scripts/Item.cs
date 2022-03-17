@@ -13,13 +13,15 @@ public class Item
         Hammer,
     }
 
-    public Type type;         // 種類
-    public Sprite sprite;     // Slotに表示する画像
+    public Type type;               // 種類
+    public Sprite sprite;           // Slotに表示する画像
+    public Sprite zoomImage;    // 拡大表示する画像   
 
     // 型
-    public Item(Type type, Sprite sprite)
+    public Item(Type type, Sprite sprite, Sprite zoomImage)
     {
         this.type = type;
         this.sprite = sprite;
+        this.zoomImage = zoomImage;
     }
 }
