@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearItemType: 2
-  Crashed: {fileID: 2141813252}
+  crashedWall: {fileID: 0}
 --- !u!114 &85797705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8879,6 +8879,8 @@ GameObject:
   - component: {fileID: 1406450552}
   - component: {fileID: 1406450554}
   - component: {fileID: 1406450553}
+  - component: {fileID: 1406450556}
+  - component: {fileID: 1406450555}
   m_Layer: 5
   m_Name: Trashcan
   m_TagString: Untagged
@@ -8903,7 +8905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 111, y: 336}
+  m_AnchoredPosition: {x: 111, y: 165}
   m_SizeDelta: {x: 414.28, y: 414.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406450553
@@ -8944,6 +8946,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406450551}
   m_CullTransparentMesh: 1
+--- !u!114 &1406450555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406450551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1406450556}
+          m_TargetAssemblyTypeName: Gimmick, Assembly-CSharp
+          m_MethodName: OnClickTrashCan
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1406450556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406450551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742846c49f6be4bc7a15d0a6a98d80d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearItemType: 0
+  crashedWall: {fileID: 0}
 --- !u!1 &1441886570
 GameObject:
   m_ObjectHideFlags: 0
