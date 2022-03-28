@@ -12,6 +12,7 @@ public class Item
         WhiteReversi2,
         HintCard1,
         Hammer,
+        Memo_left,
     }
 
     public Type type;               // 種類
