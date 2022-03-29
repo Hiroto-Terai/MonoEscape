@@ -13,6 +13,7 @@ public class Item
         HintCard1,
         Hammer,
         Memo_left,
+        Memo_right,
     }
 
     public Type type;               // 種類
