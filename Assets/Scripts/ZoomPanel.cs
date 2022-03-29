@@ -17,8 +17,6 @@ public class ZoomPanel : MonoBehaviour
 
     public bool isShow = false;
 
-    // int selectCount = ItemBox.instance.selectCount;
-
     public int selectCount = 0;
 
     Item beforeItem;
