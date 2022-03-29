@@ -50,6 +50,14 @@ public class Slot : MonoBehaviour
         return item;
     }
 
+    public void DeleteItem(Item item)
+    {
+        this.item = null;
+        image.sprite = null;
+        image.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        HideFrame();
+    }
+
     public void UpdateImage(Item item)
     {
         // スロットのImageコンポーネントにPickupObjの画像を入れる

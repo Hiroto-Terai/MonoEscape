@@ -31,3 +31,6 @@ MonoBehaviour:
   - type: 5
     sprite: {fileID: 21300000, guid: 5957b7ffe33d54b2b840bdc5c9e5c54e, type: 3}
     zoomImage: {fileID: 21300000, guid: 5957b7ffe33d54b2b840bdc5c9e5c54e, type: 3}
+  - type: 6
+    sprite: {fileID: 21300000, guid: d2e673e7c038e43d0bea9b6202fa7c4a, type: 3}
+    zoomImage: {fileID: 21300000, guid: d2e673e7c038e43d0bea9b6202fa7c4a, type: 3}

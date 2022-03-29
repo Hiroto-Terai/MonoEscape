@@ -14,6 +14,7 @@ public class Item
         Hammer,
         Memo_left,
         Memo_right,
+        HintCard2,
     }
 
     public Type type;               // 種類

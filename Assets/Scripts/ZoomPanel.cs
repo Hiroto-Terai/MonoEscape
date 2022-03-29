@@ -20,6 +20,7 @@ public class ZoomPanel : MonoBehaviour
     public int selectCount = 0;
 
     Item beforeItem;
+    public Sprite hintCard2;
 
     private void Start()
     {
@@ -34,6 +35,31 @@ public class ZoomPanel : MonoBehaviour
         if (selectCount == 0 && !isShow)
         {
             selectCount = 1;
+        }
+        // 今選んだアイテムが左メモ、前に選んだアイテムが右メモの時
+        // 今選んだアイテムが右メモ、前に選んだアイテムが左メモの時
+        if (beforeItem != null)
+        {
+            if ((currentItem.type == Item.Type.Memo_left && beforeItem.type == Item.Type.Memo_right)
+                    || (currentItem.type == Item.Type.Memo_right && beforeItem.type == Item.Type.Memo_left))
+            {
+                // 右メモ(左メモ)をアイテムBOXから削除
+                // 右メモ(左メモ)をItemデータベースから削除
+                ItemBox.instance.DeleteItem(beforeItem);
+                Debug.Log(currentItem);
+                ItemBox.instance.DeleteItem(currentItem);
+                Debug.Log("current");
+                // Itemデータベースで左メモ(右メモ)を合体メモに変更
+                currentItem.type = Item.Type.HintCard2;
+                currentItem.sprite = hintCard2;
+                currentItem.zoomImage = hintCard2;
+
+
+                // アイテムBOXの左メモ(右メモ)を合体メモに変更
+                ItemBox.instance.SetItem(currentItem);
+
+                // 合体メモを拡大表示
+            }
         }
         if (currentItem == beforeItem && selectCount == 1 && !isShow)
         {

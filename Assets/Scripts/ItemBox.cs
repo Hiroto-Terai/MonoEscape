@@ -38,6 +38,23 @@ public class ItemBox : MonoBehaviour
         }
     }
 
+    public void DeleteItem(Item item)
+    {
+        foreach (Slot slot in slots)
+        {
+            // Slotsを1つずつ見て、指定したアイテムのスロットを削除
+            if (slot.IsEmpty())
+            {
+                continue;
+            }
+            if (slot.GetItem().type == item.type)
+            {
+                slot.DeleteItem(item);
+                break;
+            }
+        }
+    }
+
     // アイテムBOX内にあるアイテムをタップした時にアイテム周辺に枠ができる
     public void OnSelectSlot(int position)
     {
