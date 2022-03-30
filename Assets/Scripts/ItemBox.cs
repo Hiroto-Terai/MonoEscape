@@ -11,6 +11,9 @@ public class ItemBox : MonoBehaviour
     // アイテム使用後のitemを持つslotの数をカウントするための変数
     public int slotsCount = 0;
 
+    // ハンマーのみ使用回数が2回なのでフラグ使用
+    public int hammerUseCount = 0;
+
     // どこでも実行できるようにstatic化
     public static ItemBox instance;
     private void Awake()
@@ -82,6 +85,14 @@ public class ItemBox : MonoBehaviour
         if (selectedSlot.GetItem().type != type)
         {
             return false;
+        }
+        if (selectedSlot.GetItem().type == Item.Type.Hammer)
+        {
+            hammerUseCount++;
+            if (hammerUseCount <= 1)
+            {
+                return true;
+            }
         }
         selectedSlot.SetItem(null);
 

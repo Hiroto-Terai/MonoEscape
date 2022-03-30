@@ -15,6 +15,7 @@ public class Item
         Memo_left,
         Memo_right,
         HintCard2,
+        HintCard3,
     }
 
     public Type type;               // 種類
