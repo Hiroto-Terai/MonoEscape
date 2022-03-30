@@ -54,11 +54,9 @@ public class ZoomPanel : MonoBehaviour
                 currentItem.sprite = hintCard2;
                 currentItem.zoomImage = hintCard2;
 
-
                 // アイテムBOXの左メモ(右メモ)を合体メモに変更
-                ItemBox.instance.SetItem(currentItem);
-
                 // 合体メモを拡大表示
+                ItemBox.instance.SetItem(currentItem);
             }
         }
         if (currentItem == beforeItem && selectCount == 1 && !isShow)
