@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gimmick : MonoBehaviour
 {
@@ -30,6 +31,11 @@ public class Gimmick : MonoBehaviour
     // ガラス瓶
     [SerializeField] GameObject crashedGrassBin = null;
 
+    // パスワードBOX
+    private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public Text[] alphabet_text;
+    int target;
+    [SerializeField] GameObject passwordBoxOpened;
 
     private void Start()
     {
@@ -137,6 +143,28 @@ public class Gimmick : MonoBehaviour
     // パスワードBOXギミック
     // 英語の入力機能
     // F->I->L->Mと入力されたら開く
+    public void OnPasswordBox(int index)
+    {
+        target = index;
+        int i = alphabet.IndexOf(alphabet_text[target].text);
+        i++;
+        if (i == alphabet.Length)
+        {
+            i = 0;
+        }
+        alphabet_text[target].text = alphabet.Substring(i, 1);
+    }
+
+    public void OnPasswordBoxEnter()
+    {
+        if (alphabet_text[0].text == "F" &&
+        alphabet_text[1].text == "I" &&
+        alphabet_text[2].text == "L" &&
+        alphabet_text[3].text == "M")
+        {
+            passwordBoxOpened.SetActive(true);
+        }
+    }
 
     // 暗証番号付きキーギミック
     // 拡大表示画面にてマスを押せる
