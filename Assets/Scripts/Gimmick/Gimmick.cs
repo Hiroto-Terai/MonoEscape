@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gimmick : MonoBehaviour
 {
     [SerializeField] Item.Type clearItemType = default;
-    [SerializeField] GameObject crashedWall = null;
     Transform TransForm;
 
     // ゴミ箱
@@ -24,6 +23,13 @@ public class Gimmick : MonoBehaviour
     [SerializeField] GameObject[] reversies = null;
     [SerializeField] GameObject switchBoxOpened = null;
     GameObject reversi;
+
+    // 壁
+    [SerializeField] GameObject crashedWall = null;
+
+    // ガラス瓶
+    [SerializeField] GameObject crashedGrassBin = null;
+
 
     private void Start()
     {
@@ -119,7 +125,13 @@ public class Gimmick : MonoBehaviour
     // ハンマーは消えない
     public void OnGrassBin()
     {
-        
+        bool isOkUseHammer = ItemBox.instance.TryUseItem(clearItemType);
+        if (isOkUseHammer)
+        {
+            // 壊れる前のガラス瓶を削除
+            gameObject.SetActive(false);
+            crashedGrassBin.SetActive(true);
+        }
     }
 
     // パスワードBOXギミック
