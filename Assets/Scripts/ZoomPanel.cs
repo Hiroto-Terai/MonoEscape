@@ -22,6 +22,8 @@ public class ZoomPanel : MonoBehaviour
     Item beforeItem;
     public Sprite hintCard2;
 
+    [SerializeField] GameObject NumberKey;
+
     private void Start()
     {
         zoomImage = zoomImageObj.GetComponent<Image>();
@@ -62,7 +64,7 @@ public class ZoomPanel : MonoBehaviour
         if (currentItem.type == Item.Type.NumberKey)
         {
             // 暗証番号付きキーだった場合、拡大表示状態で色々操作したい
-
+            NumberKey.SetActive(true);
         }
         if (currentItem == beforeItem && selectCount == 1 && !isShow)
         {
@@ -87,6 +89,12 @@ public class ZoomPanel : MonoBehaviour
             isShow = false;
             selectCount = 1;
             panel.SetActive(false);
+
+            // 暗証番号付きキーを閉じる時は、入力UIも削除する必要がある
+            if (currentItem.type == Item.Type.NumberKey)
+            {
+                NumberKey.SetActive(false);
+            }
 
             // フォーカスしてる状態で拡大表示->削除するときは、左右ボタンいらない
             if (wallParent.GetComponent<Transform>().localPosition.y == 0)

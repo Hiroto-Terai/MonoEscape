@@ -192,8 +192,7 @@ public class Gimmick : MonoBehaviour
         numbers[3].text == "3")
         {
             // スロットと拡大表示の画像を差し替え
-            Debug.Log("クリア");
-            return;
+            
         }
     }
 
