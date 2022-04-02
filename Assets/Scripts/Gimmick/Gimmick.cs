@@ -53,6 +53,9 @@ public class Gimmick : MonoBehaviour
 
     public bool isUnlockKey = false;
 
+    // 棚
+    [SerializeField] GameObject shelfOpened = null;
+
     private void Start()
     {
         TransForm = GetComponent<Transform>();
@@ -216,12 +219,12 @@ public class Gimmick : MonoBehaviour
     public void OnShelf()
     {
         // アイテムHammerを持っているかどうか
-        bool isOkUseHammer = ItemBox.instance.TryUseItem(clearItemType);
-        if (isOkUseHammer)
+        bool isOkUseUnlockKey = ItemBox.instance.TryUseItem(clearItemType);
+        if (isOkUseUnlockKey)
         {
             // 壊れる前の壁を削除
             gameObject.SetActive(false);
-            crashedWall.SetActive(true);
+            shelfOpened.SetActive(true);
         }
     }
 

@@ -18,6 +18,7 @@ public class Item
         HintCard3,
         NumberKey,
         UnlockNumberKey,
+        Mirror,
     }
 
     public Type type;               // 種類
