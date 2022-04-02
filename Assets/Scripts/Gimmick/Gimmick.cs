@@ -34,8 +34,12 @@ public class Gimmick : MonoBehaviour
     // パスワードBOX
     private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public Text[] alphabet_text;
-    int target;
+    int targetOfPasswordBox;
     [SerializeField] GameObject passwordBoxOpened;
+
+    // 暗証番号付きキー
+    int targetOfNumberKey;
+    public Text[] numbers;
 
     private void Start()
     {
@@ -145,14 +149,14 @@ public class Gimmick : MonoBehaviour
     // F->I->L->Mと入力されたら開く
     public void OnPasswordBox(int index)
     {
-        target = index;
-        int i = alphabet.IndexOf(alphabet_text[target].text);
+        targetOfPasswordBox = index;
+        int i = alphabet.IndexOf(alphabet_text[targetOfPasswordBox].text);
         i++;
         if (i == alphabet.Length)
         {
             i = 0;
         }
-        alphabet_text[target].text = alphabet.Substring(i, 1);
+        alphabet_text[targetOfPasswordBox].text = alphabet.Substring(i, 1);
     }
 
     public void OnPasswordBoxEnter()
@@ -169,6 +173,29 @@ public class Gimmick : MonoBehaviour
     // 暗証番号付きキーギミック
     // 拡大表示画面にてマスを押せる
     // 2->2->1->3と入力されたら鍵の先が出てくる
+    public void OnNumberKey(int index)
+    {
+        // 数字変換
+        targetOfNumberKey = index;
+        int i = int.Parse(numbers[targetOfNumberKey].text);
+        i++;
+        if (i > 9)
+        {
+            i = 0;
+        }
+        numbers[targetOfNumberKey].text = i.ToString();
+
+        // 判定
+        if (numbers[0].text == "2" &&
+        numbers[1].text == "2" &&
+        numbers[2].text == "1" &&
+        numbers[3].text == "3")
+        {
+            // スロットと拡大表示の画像を差し替え
+            Debug.Log("クリア");
+            return;
+        }
+    }
 
     // 棚ギミック
     // 先が出ている鍵を選択した状態で押すと開く

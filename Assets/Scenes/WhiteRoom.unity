@@ -497,7 +497,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &58686386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,7 +624,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 2141813252}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &85797705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,7 +1147,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &158420691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,7 +2932,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 1782119220}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &332032591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5375,7 +5379,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &589439194
 GameObject:
   m_ObjectHideFlags: 0
@@ -5912,7 +5917,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &658618515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6079,6 +6085,7 @@ GameObject:
   - component: {fileID: 720391028}
   - component: {fileID: 720391031}
   - component: {fileID: 720391030}
+  - component: {fileID: 720391032}
   - component: {fileID: 720391029}
   m_Layer: 5
   m_Name: Button
@@ -6116,41 +6123,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 720391027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 720391030}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 720391032}
+          m_TargetAssemblyTypeName: Gimmick, Assembly-CSharp
+          m_MethodName: OnPasswordBox
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &720391030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6189,6 +6181,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720391027}
   m_CullTransparentMesh: 1
+--- !u!114 &720391032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720391027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742846c49f6be4bc7a15d0a6a98d80d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearItemType: 0
+  blackPanels: []
+  safeOpened: {fileID: 0}
+  reversies: []
+  switchBoxOpened: {fileID: 0}
+  crashedWall: {fileID: 0}
+  crashedGrassBin: {fileID: 0}
+  alphabet_text:
+  - {fileID: 1684303987}
+  - {fileID: 1249351629}
+  - {fileID: 465000311}
+  - {fileID: 1795146507}
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &746895411
 GameObject:
   m_ObjectHideFlags: 0
@@ -6762,7 +6779,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &823263071
 GameObject:
   m_ObjectHideFlags: 0
@@ -7358,7 +7376,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &889513134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7620,7 +7639,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &968584460
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +7813,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &969094431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7922,7 +7943,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 407958394}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &992099190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8213,6 +8235,137 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1154006442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154006443}
+  - component: {fileID: 1154006447}
+  - component: {fileID: 1154006446}
+  - component: {fileID: 1154006445}
+  - component: {fileID: 1154006444}
+  m_Layer: 5
+  m_Name: Enter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1154006443
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154006442}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1276503088}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -252, y: -9}
+  m_SizeDelta: {x: 63, y: 102.35}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1154006444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154006442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742846c49f6be4bc7a15d0a6a98d80d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearItemType: 0
+  blackPanels: []
+  safeOpened: {fileID: 0}
+  reversies: []
+  switchBoxOpened: {fileID: 0}
+  crashedWall: {fileID: 0}
+  crashedGrassBin: {fileID: 0}
+  alphabet_text:
+  - {fileID: 1684303987}
+  - {fileID: 1249351629}
+  - {fileID: 465000311}
+  - {fileID: 1795146507}
+  passwordBoxOpened: {fileID: 2112451093}
+--- !u!114 &1154006445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154006442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1154006444}
+          m_TargetAssemblyTypeName: Gimmick, Assembly-CSharp
+          m_MethodName: OnPasswordBoxEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1154006446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154006442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1154006447
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154006442}
+  m_CullTransparentMesh: 1
 --- !u!1 &1160479543
 GameObject:
   m_ObjectHideFlags: 0
@@ -8356,6 +8509,7 @@ GameObject:
   - component: {fileID: 1163933644}
   - component: {fileID: 1163933647}
   - component: {fileID: 1163933646}
+  - component: {fileID: 1163933648}
   - component: {fileID: 1163933645}
   m_Layer: 5
   m_Name: Button
@@ -8393,41 +8547,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1163933643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1163933646}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1163933648}
+          m_TargetAssemblyTypeName: Gimmick, Assembly-CSharp
+          m_MethodName: OnPasswordBox
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1163933646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8466,6 +8605,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163933643}
   m_CullTransparentMesh: 1
+--- !u!114 &1163933648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163933643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742846c49f6be4bc7a15d0a6a98d80d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearItemType: 0
+  blackPanels: []
+  safeOpened: {fileID: 0}
+  reversies: []
+  switchBoxOpened: {fileID: 0}
+  crashedWall: {fileID: 0}
+  crashedGrassBin: {fileID: 0}
+  alphabet_text:
+  - {fileID: 1684303987}
+  - {fileID: 1249351629}
+  - {fileID: 465000311}
+  - {fileID: 1795146507}
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &1167449185
 GameObject:
   m_ObjectHideFlags: 0
@@ -9385,6 +9549,7 @@ RectTransform:
   - {fileID: 720391028}
   - {fileID: 1163933644}
   - {fileID: 1731978009}
+  - {fileID: 1154006443}
   m_Father: {fileID: 2057746667}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10669,7 +10834,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &1441886570
 GameObject:
   m_ObjectHideFlags: 0
@@ -11498,7 +11664,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &1589212418
 GameObject:
   m_ObjectHideFlags: 0
@@ -11671,7 +11838,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &1616217960
 GameObject:
   m_ObjectHideFlags: 0
@@ -12088,7 +12256,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &1684303985
 GameObject:
   m_ObjectHideFlags: 0
@@ -12265,7 +12434,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &1690786235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12720,6 +12890,7 @@ GameObject:
   - component: {fileID: 1731978009}
   - component: {fileID: 1731978012}
   - component: {fileID: 1731978011}
+  - component: {fileID: 1731978013}
   - component: {fileID: 1731978010}
   m_Layer: 5
   m_Name: Button
@@ -12757,41 +12928,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1731978008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 742846c49f6be4bc7a15d0a6a98d80d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1731978011}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  clearItemType: 0
+  blackPanels: []
+  safeOpened: {fileID: 0}
+  reversies: []
+  switchBoxOpened: {fileID: 0}
+  crashedWall: {fileID: 0}
+  crashedGrassBin: {fileID: 0}
+  alphabet_text:
+  - {fileID: 1684303987}
+  - {fileID: 1249351629}
+  - {fileID: 465000311}
+  - {fileID: 1795146507}
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &1731978011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12830,6 +12982,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731978008}
   m_CullTransparentMesh: 1
+--- !u!114 &1731978013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731978008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1731978010}
+          m_TargetAssemblyTypeName: Gimmick, Assembly-CSharp
+          m_MethodName: OnPasswordBox
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1751586324
 GameObject:
   m_ObjectHideFlags: 0
@@ -13072,7 +13253,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &1759368528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13673,7 +13855,8 @@ MonoBehaviour:
   switchBoxOpened: {fileID: 0}
   crashedWall: {fileID: 0}
   crashedGrassBin: {fileID: 0}
-  texts: []
+  alphabet_text: []
+  passwordBoxOpened: {fileID: 0}
 --- !u!1 &1801795666
 GameObject:
   m_ObjectHideFlags: 0
@@ -14691,6 +14874,8 @@ GameObject:
   - component: {fileID: 1918945005}
   - component: {fileID: 1918945007}
   - component: {fileID: 1918945006}
+  - component: {fileID: 1918945009}
+  - component: {fileID: 1918945008}
   m_Layer: 5
   m_Name: Key
   m_TagString: Untagged
@@ -14755,6 +14940,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918945004}
   m_CullTransparentMesh: 1
+--- !u!114 &1918945008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918945004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b54636b9a2604ff18192d93e715cf22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 8
+--- !u!114 &1918945009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918945004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1918945006}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1918945008}
+        m_TargetAssemblyTypeName: PickupObj, Assembly-CSharp
+        m_MethodName: OnClickObj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1919067544
 GameObject:
   m_ObjectHideFlags: 0
@@ -15004,6 +15258,7 @@ GameObject:
   - component: {fileID: 1963752130}
   - component: {fileID: 1963752133}
   - component: {fileID: 1963752132}
+  - component: {fileID: 1963752134}
   - component: {fileID: 1963752131}
   m_Layer: 5
   m_Name: Button
@@ -15041,41 +15296,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1963752129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 742846c49f6be4bc7a15d0a6a98d80d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1963752132}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  clearItemType: 0
+  blackPanels: []
+  safeOpened: {fileID: 0}
+  reversies: []
+  switchBoxOpened: {fileID: 0}
+  crashedWall: {fileID: 0}
+  crashedGrassBin: {fileID: 0}
+  alphabet_text:
+  - {fileID: 1684303987}
+  - {fileID: 1249351629}
+  - {fileID: 465000311}
+  - {fileID: 1795146507}
+  passwordBoxOpened: {fileID: 0}
 --- !u!114 &1963752132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15114,6 +15350,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963752129}
   m_CullTransparentMesh: 1
+--- !u!114 &1963752134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963752129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1963752131}
+          m_TargetAssemblyTypeName: Gimmick, Assembly-CSharp
+          m_MethodName: OnPasswordBox
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1971544530
 GameObject:
   m_ObjectHideFlags: 0
@@ -16016,7 +16281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2112451094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16205,7 +16470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2141813253
 RectTransform:
   m_ObjectHideFlags: 0

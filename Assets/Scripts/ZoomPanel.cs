@@ -59,6 +59,11 @@ public class ZoomPanel : MonoBehaviour
                 ItemBox.instance.SetItem(currentItem);
             }
         }
+        if (currentItem.type == Item.Type.NumberKey)
+        {
+            // 暗証番号付きキーだった場合、拡大表示状態で色々操作したい
+
+        }
         if (currentItem == beforeItem && selectCount == 1 && !isShow)
         {
             isShow = true;
