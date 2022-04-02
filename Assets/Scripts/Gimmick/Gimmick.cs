@@ -56,6 +56,12 @@ public class Gimmick : MonoBehaviour
     // 棚
     [SerializeField] GameObject shelfOpened = null;
 
+    // 宝箱(南京錠)
+    public Text[] alphabet_text_padlock;
+    int targetOfPadLock;
+    [SerializeField] GameObject treasureBoxOpened;
+
+
     private void Start()
     {
         TransForm = GetComponent<Transform>();
@@ -234,6 +240,25 @@ public class Gimmick : MonoBehaviour
     // 宝箱ギミック
     // 南京錠拡大画面にて、英語の入力機能
     // H->U->M->A->Nと入力されたら南京錠と宝箱が開く
+    public void OnTreasureBox(int index)
+    {
+        targetOfPadLock = index;
+        int i = alphabet.IndexOf(alphabet_text_padlock[targetOfPadLock].text);
+        i++;
+        if (i == alphabet.Length)
+        {
+            i = 0;
+        }
+        alphabet_text_padlock[targetOfPadLock].text = alphabet.Substring(i, 1);
+        if (alphabet_text_padlock[0].text == "H" &&
+        alphabet_text_padlock[1].text == "U" &&
+        alphabet_text_padlock[2].text == "M" &&
+        alphabet_text_padlock[3].text == "A" &&
+        alphabet_text_padlock[4].text == "N")
+        {
+            treasureBoxOpened.SetActive(true);
+        }
+    }
 
     // 白い扉ギミック
     // 鍵を選択した状態で白い扉の鍵穴をクリックすると扉が開く(アニメーション付き)

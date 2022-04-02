@@ -19,6 +19,7 @@ public class Item
         NumberKey,
         UnlockNumberKey,
         Mirror,
+        WhiteKey,
     }
 
     public Type type;               // 種類
