@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class Gimmick : MonoBehaviour
 {
+    public static Gimmick instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     [SerializeField] Item.Type clearItemType = default;
     Transform TransForm;
 
@@ -40,6 +48,10 @@ public class Gimmick : MonoBehaviour
     // 暗証番号付きキー
     int targetOfNumberKey;
     public Text[] numbers;
+
+    [SerializeField] Sprite unlockKey;
+
+    public bool isUnlockKey = false;
 
     private void Start()
     {
@@ -192,13 +204,26 @@ public class Gimmick : MonoBehaviour
         numbers[3].text == "3")
         {
             // スロットと拡大表示の画像を差し替え
-            
+            isUnlockKey = true;
+            Debug.Log("解除");
+            ZoomPanel.instance.ChangeImage(unlockKey);
         }
     }
 
     // 棚ギミック
     // 先が出ている鍵を選択した状態で押すと開く
     // 先が出ていない状態で押すと開かない(フラグ必要)
+    public void OnShelf()
+    {
+        // アイテムHammerを持っているかどうか
+        bool isOkUseHammer = ItemBox.instance.TryUseItem(clearItemType);
+        if (isOkUseHammer)
+        {
+            // 壊れる前の壁を削除
+            gameObject.SetActive(false);
+            crashedWall.SetActive(true);
+        }
+    }
 
     // 鏡ギミック
     // それぞれの壁でズームした時にうつる画面が違う

@@ -17,6 +17,7 @@ public class Item
         HintCard2,
         HintCard3,
         NumberKey,
+        UnlockNumberKey,
     }
 
     public Type type;               // 種類

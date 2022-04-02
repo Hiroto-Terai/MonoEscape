@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class ZoomPanel : MonoBehaviour
 {
+    // どこでも実行できるようにstatic化
+    public static ZoomPanel instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     [SerializeField] GameObject panel = default;
     [SerializeField] GameObject wallParent;
     [SerializeField] GameObject zoomImageObj;
@@ -23,6 +32,8 @@ public class ZoomPanel : MonoBehaviour
     public Sprite hintCard2;
 
     [SerializeField] GameObject NumberKey;
+
+    public Sprite UnlockKey;
 
     private void Start()
     {
@@ -59,10 +70,11 @@ public class ZoomPanel : MonoBehaviour
                 ItemBox.instance.SetItem(currentItem);
             }
         }
-        if (currentItem.type == Item.Type.NumberKey)
+        if (currentItem.type == Item.Type.NumberKey && Gimmick.instance.isUnlockKey == false)
         {
             // 暗証番号付きキーだった場合、拡大表示状態で色々操作したい
             NumberKey.SetActive(true);
+            Debug.Log("表示");
         }
         if (currentItem == beforeItem && selectCount == 1 && !isShow)
         {
@@ -101,6 +113,25 @@ public class ZoomPanel : MonoBehaviour
                 leftArrow.SetActive(true);
             }
             backArrow.SetActive(false);
+        }
+    }
+
+    // 拡大表示画面で、表示画像を切り替え(暗証番号付きキーでのみ使用)
+    public void ChangeImage(Sprite sprite)
+    {
+        zoomImage.sprite = sprite;
+        Gimmick.instance.isUnlockKey = true;
+        Item currentItem = ItemBox.instance.GetSelectedItem();
+        ItemBox.instance.DeleteItem(currentItem);
+        currentItem.type = Item.Type.UnlockNumberKey;
+        currentItem.sprite = UnlockKey;
+        currentItem.zoomImage = UnlockKey;
+        ItemBox.instance.SetItem(currentItem);
+
+        // 暗証番号付きキーを閉じる時は、入力UIも削除する必要がある
+        if (currentItem.type == Item.Type.UnlockNumberKey)
+        {
+            NumberKey.SetActive(false);
         }
     }
 }
