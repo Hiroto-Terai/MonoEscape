@@ -48,9 +48,7 @@ public class ZoomPanel : MonoBehaviour
                 // 右メモ(左メモ)をアイテムBOXから削除
                 // 右メモ(左メモ)をItemデータベースから削除
                 ItemBox.instance.DeleteItem(beforeItem);
-                Debug.Log(currentItem);
                 ItemBox.instance.DeleteItem(currentItem);
-                Debug.Log("current");
                 // Itemデータベースで左メモ(右メモ)を合体メモに変更
                 currentItem.type = Item.Type.HintCard2;
                 currentItem.sprite = hintCard2;
