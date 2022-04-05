@@ -61,6 +61,9 @@ public class Gimmick : MonoBehaviour
     int targetOfPadLock;
     [SerializeField] GameObject treasureBoxOpened;
 
+    // 白い扉
+    [SerializeField] GameObject whiteDoorOpened;
+
 
     private void Start()
     {
@@ -262,5 +265,15 @@ public class Gimmick : MonoBehaviour
 
     // 白い扉ギミック
     // 鍵を選択した状態で白い扉の鍵穴をクリックすると扉が開く(アニメーション付き)
+    // アイテムHammerを持っているかどうか
+    public void OnWhiteDoor()
+    {
+        bool isOkUseWhiteKey = ItemBox.instance.TryUseItem(clearItemType);
+        if (isOkUseWhiteKey)
+        {
+            // 壊れる前の壁を削除
+            whiteDoorOpened.SetActive(true);
+        }
+    }
 
 }
