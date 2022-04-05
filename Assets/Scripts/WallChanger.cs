@@ -150,7 +150,7 @@ public class WallChanger : MonoBehaviour
     // 宝箱の南京錠
     public void OnPadLock()
     {
-        Show(Wall.Wall0_1);
+        Show(Wall.Wall0_2);
     }
 
     // 白ドア

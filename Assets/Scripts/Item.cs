@@ -12,6 +12,14 @@ public class Item
         WhiteReversi2,
         HintCard1,
         Hammer,
+        Memo_left,
+        Memo_right,
+        HintCard2,
+        HintCard3,
+        NumberKey,
+        UnlockNumberKey,
+        Mirror,
+        WhiteKey,
     }
 
     public Type type;               // 種類
