@@ -275,5 +275,4 @@ public class Gimmick : MonoBehaviour
             whiteDoorOpened.SetActive(true);
         }
     }
-
 }
