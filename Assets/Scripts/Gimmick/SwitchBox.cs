@@ -33,7 +33,6 @@ public class SwitchBox : MonoBehaviour
     //EventTriggerのPointerDownイベントに登録する処理
     void PointerDown()
     {
-        Debug.Log("Press Start");
         //連続でタップした時に長押しにならないよう前のCoroutineを止める
         if (PressCorutine != null)
         {
@@ -94,9 +93,7 @@ public class SwitchBox : MonoBehaviour
     {
         if (isPressDown)
         {
-            Debug.Log("Short Press Done");
             isPressDown = false;
         }
-        Debug.Log("Press End");
     }
 }

@@ -74,7 +74,6 @@ public class ZoomPanel : MonoBehaviour
         {
             // 暗証番号付きキーだった場合、拡大表示状態で色々操作したい
             NumberKey.SetActive(true);
-            Debug.Log("表示");
         }
         if (currentItem == beforeItem && selectCount == 1 && !isShow)
         {
